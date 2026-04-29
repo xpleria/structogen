@@ -1,0 +1,46 @@
+# Node modules
+node_modules/
+
+# Build output
+dist/
+output/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# TypeScript
+*.tsbuildinfo
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# IDE and editor-specific files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.ps1
+
+# Electron Builder output
+release/
+release-builds/
+output/electron/
+
+# Environment variables
+.env
+.env.local
+
+# pkg output
+*.exe
+*.dmg
+*.app
+*.deb
+*.snap
+*.rpm
+*.pkg
+*.lock.json
