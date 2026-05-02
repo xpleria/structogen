@@ -25,7 +25,6 @@ Thumbs.db
 *.suo
 *.ntvs*
 *.njsproj
-*.ps1
 
 # Electron Builder output
 release/
