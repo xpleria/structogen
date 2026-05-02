@@ -4,11 +4,12 @@
   "version": "0.1.0",
   "main": "dist/electron/main.js",
   "scripts": {
-    "prebuild": "node scripts/copy-icons.js",
     "build": "npm run build:cli && npm run build:electron && npm run package:cli",
-    "build:cli": "tsc --project tsconfig.json",
+    "build:cli": "tsc --project tsconfig.cli.json",
     "build:electron": "tsc --project tsconfig.electron.json && node scripts/copy-renderer.js && electron-builder",
-    "package:cli": "pkg . --targets node20-win-x64,node20-linux-x64,node20-macos-x64 --output ./output/cli/structogen-cli",
+    "clean": "node -e \"require('fs-extra').removeSync('build'); require('fs-extra').removeSync('dist'); require('fs-extra').removeSync('output');\"",
+    "package:cli": "pkg . --targets node20-win-x64,node20-linux-x64,node20-macos-x64 --output ./output/cli/structogen-cli && node scripts/set-cli-icons.js",
+    "prebuild:electron": "node scripts/copy-icons.js",
     "start:cli": "node dist/cli/cli.js",
     "start:electron": "electron .",
     "start:electron:dev": "electron . --enable-logging --no-sandbox",
@@ -59,10 +60,12 @@
     "fs-extra": "^11.3.0"
   },
   "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
     "@types/node": "^22.14.1",
     "@yao-pkg/pkg": "^6.19.0",
-    "electron": "^35.1.5",
-    "electron-builder": "^26.0.12",
+    "electron": "^41.3.0",
+    "electron-builder": "^26.8.1",
+    "rcedit": "^5.0.2",
     "typescript": "^5.8.3"
   }
 }

@@ -1,14 +1,14 @@
 {
+  "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    "target": "es6",
-    "module": "commonjs",
-    "strict": true,
     "rootDir": "src",
     "outDir": "dist",
-    "declaration": false,
-    "types": [],
-    "skipLibCheck": true,
-    "esModuleInterop": true
+    "types": [
+      "node"
+    ]
   },
-  "include": ["src/electron/**/*"]
+  "include": [
+    "src/electron/**/*",
+    "src/shared/**/*"
+  ]
 }
