@@ -1,6 +1,9 @@
 const { rcedit } = require('rcedit');
 const fs = require('fs-extra');
+const path = require('path');
 const pkg = require('../package.json');
+
+const rootDir = path.resolve(__dirname, '..');
 
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -10,9 +13,9 @@ async function main() {
     return;
   }
 
-  const exePath = 'output/cli/structogen-cli-win.exe';
-  const tempPath = 'output/cli/structogen-cli-win-icon-tmp.exe';
-  const iconPath = 'assets/icons/structogen-win-rcedit.ico';
+  const exePath = path.join(rootDir, 'output/cli/structogen-cli-win.exe');
+  const tempPath = path.join(rootDir, 'output/cli/structogen-cli-win-icon-tmp.exe');
+  const iconPath = path.join(rootDir, 'assets/icons/structogen-win-rcedit.ico');
 
   const rceditOptions = {
     icon: iconPath,

@@ -1,6 +1,6 @@
 param(
   [string]$Source = "assets/icons/structogen-icon-transparent.png",
-  [string]$Output = "build/icons/structogen-win-rcedit.ico"
+  [string]$Output = "assets/icons/structogen-win-rcedit.ico"
 )
 
 Add-Type -AssemblyName System.Drawing
