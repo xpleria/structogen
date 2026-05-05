@@ -1,46 +1,70 @@
 # Node modules
 node_modules/
 
-# Build output
+# Build outputs
 dist/
-output/
 build/
+out/
+.webpack/
+.next/
 
 # Logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
 *.log
+npm-debug.log*
+pnpm-debug.log*
 
 # TypeScript
 *.tsbuildinfo
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+!packages/frontend/.vscode/
+packages/frontend/.vscode/settings.json
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.project
+.classpath
+
+# Build/Package Manager
+pnpm-lock.yaml  # Optional: remove this if you want to commit lock files for reproducible installs
+yarn.lock
+package-lock.json
+
+# Electron
+*.dmg
+*.exe
+*.zip
+*.deb
+*.rpm
+
+# Angular
+.angular/
+.cache/
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# IDE temporary files
+*.sublime-workspace
+.venv/
+venv/
+env/
+
+# Generated files
+build/icons/  # if these are build artifacts, not source
 
 # OS-specific files
 .DS_Store
 Thumbs.db
 
-# IDE and editor-specific files
-.vscode/
-.idea/
-*.suo
-*.ntvs*
-*.njsproj
-
-# Electron Builder output
-release/
-release-builds/
-output/electron/
-
-# Environment variables
-.env
-.env.local
-
-# pkg output
-*.exe
-*.dmg
-*.app
-*.deb
-*.snap
-*.rpm
-*.pkg
-*.lock.json
+user-plugins/*
+!user-plugins/.gitkeep
