@@ -43,6 +43,8 @@ export interface AppInfo {
 }
 
 export interface StructogenApi {
+  invoke(channel: string, ...args: unknown[]): Promise<unknown>;
+  send(channel: string, ...args: unknown[]): void;
   showOpenDialog(options: OpenDialogOptions): Promise<string[] | null>;
   showSaveDialog(options: SaveDialogOptions): Promise<string | null>;
   readFile(filePath: string): Promise<string>;
