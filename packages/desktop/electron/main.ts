@@ -6,7 +6,7 @@ import type {
 import fs from 'fs/promises';
 import path from 'path';
 import squirrelStartup from 'electron-squirrel-startup';
-import type { AppInfo, GenerateOptions, GenerateResult } from '@xpleria/structogen-utils';
+import { normalizePlatform, type AppInfo, type GenerateOptions, type GenerateResult } from '@xpleria/structogen-utils';
 
 declare const MAIN_WINDOW_WEBPACK_ENTRY: string;
 declare const MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: string;
@@ -96,9 +96,9 @@ function registerIpcHandlers(): void {
     return ['Schema validation not yet implemented.'];
   });
 
-  ipcMain.handle('app:getInfo', (): AppInfo => ({
+  ipcMain.handle("app:getInfo", (): AppInfo => ({
     version: app.getVersion(),
-    platform: process.platform as AppInfo['platform'],
+    platform: normalizePlatform(process.platform),
   }));
 
   ipcMain.on('window:minimize', () => {

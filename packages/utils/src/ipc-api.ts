@@ -1,3 +1,6 @@
+import { NormalizedPlatform } from "./platform.js";
+import type { GenerateOptions, GenerateResult, SupportedLanguage } from "@xpleria/structogen-common";
+
 export interface FileFilter {
   name: string;
   extensions: string[];
@@ -16,30 +19,12 @@ export interface SaveDialogOptions {
   filters?: FileFilter[];
 }
 
-export type SupportedLanguage =
-  | 'csharp'
-  | 'cpp'
-  | 'java'
-  | 'typescript'
-  | 'javascript'
-  | 'python';
-
-export interface GenerateOptions {
-  schemaPath: string;
-  outputDir: string;
-  languages: SupportedLanguage[];
-  projectFilePath?: string;
-}
-
-export interface GenerateResult {
-  success: boolean;
-  outputFiles: string[];
-  errors: string[];
-}
+// Re-export shared types for convenience
+export type { SupportedLanguage, GenerateOptions, GenerateResult } from "@xpleria/structogen-common";
 
 export interface AppInfo {
   version: string;
-  platform: 'win32' | 'darwin' | 'linux';
+  platform: NormalizedPlatform;
 }
 
 export interface StructogenApi {

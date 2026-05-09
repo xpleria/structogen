@@ -1,5 +1,5 @@
 {
-  "name": "@xpleria/structogen-utils",
+  "name": "@xpleria/structogen-common",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -10,11 +10,8 @@
     "clean": "rimraf dist",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
-  "dependencies": {
-    "@xpleria/structogen-common": "workspace:*"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "@types/node": "^25.6.2",
     "rimraf": "^6.0.1",
     "typescript": "^5.9.2"
   }

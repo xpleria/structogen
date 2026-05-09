@@ -1,4 +1,6 @@
-export const DEFAULT_USER_PLUGIN_DIRECTORY = "~/.structogen/plugins";
+import { expandHome } from "@xpleria/structogen-utils";
+
+export const DEFAULT_USER_PLUGIN_DIRECTORY = expandHome("~/.structogen/plugins");
 
 export class PluginDiscovery {
   discoverAutomatically(): void {
