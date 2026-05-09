@@ -1,4 +1,5 @@
-// packages/core/src/engine/file-writer.ts
+import path from 'path';
+
 import type { FileSystem } from "@xpleria/structogen-utils";
 
 export interface FileWriterOptions {
@@ -16,17 +17,17 @@ export class FileWriter {
   }
 
   async writeFile(relativePath: string, content: string): Promise<void> {
-    const fullPath = `${this.baseDir}/${relativePath}`;
+    const fullPath = path.join(this.baseDir, relativePath);
     await this.fs.writeFile(fullPath, content);
   }
 
   async pathExists(relativePath: string): Promise<boolean> {
-    const fullPath = `${this.baseDir}/${relativePath}`;
+    const fullPath = path.join(this.baseDir, relativePath);
     return this.fs.pathExists(fullPath);
   }
 
   async readDir(relativePath: string): Promise<string[]> {
-    const fullPath = `${this.baseDir}/${relativePath}`;
+    const fullPath = path.join(this.baseDir, relativePath);
     return this.fs.readDir(fullPath);
   }
 }

@@ -8,6 +8,8 @@ import path from 'path';
 import squirrelStartup from 'electron-squirrel-startup';
 import { normalizePlatform, type AppInfo, type GenerateOptions, type GenerateResult } from '@xpleria/structogen-utils';
 
+import { ElectronPluginManager } from './plugin-manager';
+
 declare const MAIN_WINDOW_WEBPACK_ENTRY: string;
 declare const MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: string;
 
@@ -124,7 +126,15 @@ function registerIpcHandlers(): void {
 }
 
 app.whenReady().then(() => {
+  // 1. Initialize plugin manager
+  const pluginManager = new ElectronPluginManager();
+  pluginManager.resolveUserPluginDirectory();
+  pluginManager.loadUserPlugins();
+
+  // 2. Register IPC handlers
   registerIpcHandlers();
+
+  // 3. Create the main window
   createWindow();
 
   app.on('activate', () => {

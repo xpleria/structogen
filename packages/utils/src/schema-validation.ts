@@ -1,9 +1,9 @@
 export class SchemaValidation {
-  validate(): void {
+  validate(schema: unknown): void {
     // TODO: Validate schema input.
   }
 
-  collectDiagnostics(): void {
+  collectDiagnostics(schema: unknown): void {
     // TODO: Collect validation diagnostics.
   }
 }

@@ -1,9 +1,13 @@
 export class ElectronPluginManager {
+  constructor() {
+    // Future: accept config, paths, engine reference, etc.
+  }
+
   resolveUserPluginDirectory(): void {
-    // TODO: Resolve the ~/.structogen/plugins user plugin directory.
+    // TODO: Resolve ~/.structogen/plugins
   }
 
   loadUserPlugins(): void {
-    // TODO: Load user plugins for the desktop runtime.
+    // TODO: Load user plugins for the desktop runtime
   }
 }

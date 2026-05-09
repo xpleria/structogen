@@ -10,7 +10,6 @@
     "clean": "rimraf dist",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
-  "dependencies": {},
   "devDependencies": {
     "rimraf": "^6.0.1",
     "typescript": "^5.9.2"
