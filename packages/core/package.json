@@ -14,6 +14,7 @@
     "@xpleria/structogen-utils": "workspace:*"
   },
   "devDependencies": {
+    "@types/node": "^25.6.2",
     "rimraf": "^6.0.1",
     "typescript": "^5.9.2"
   }

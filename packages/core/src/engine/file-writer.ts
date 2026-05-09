@@ -1,9 +1,32 @@
+// packages/core/src/engine/file-writer.ts
+import type { FileSystem } from "@xpleria/structogen-utils";
+
+export interface FileWriterOptions {
+  fileSystem: FileSystem;
+  baseDir: string;
+}
+
 export class FileWriter {
-  writeFile(): void {
-    // TODO: Write generated content to disk.
+  private readonly fs: FileSystem;
+  private readonly baseDir: string;
+
+  constructor(options: FileWriterOptions) {
+    this.fs = options.fileSystem;
+    this.baseDir = options.baseDir;
   }
 
-  ensureOutputDirectory(): void {
-    // TODO: Ensure the output directory exists.
+  async writeFile(relativePath: string, content: string): Promise<void> {
+    const fullPath = `${this.baseDir}/${relativePath}`;
+    await this.fs.writeFile(fullPath, content);
+  }
+
+  async pathExists(relativePath: string): Promise<boolean> {
+    const fullPath = `${this.baseDir}/${relativePath}`;
+    return this.fs.pathExists(fullPath);
+  }
+
+  async readDir(relativePath: string): Promise<string[]> {
+    const fullPath = `${this.baseDir}/${relativePath}`;
+    return this.fs.readDir(fullPath);
   }
 }

@@ -56,6 +56,10 @@ const api: StructogenApi = {
       ipcRenderer.removeListener('window:maximizeChanged', handler);
     };
   },
+  
+  invoke: (channel: string, ...args: unknown[]): Promise<unknown> => ipcRenderer.invoke(channel, ...args),
+
+  send: (channel: string, ...args: unknown[]): void => ipcRenderer.send(channel, ...args),
 };
 
 contextBridge.exposeInMainWorld('structogen', api);
