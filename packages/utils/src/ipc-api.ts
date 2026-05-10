@@ -1,5 +1,5 @@
-import { NormalizedPlatform } from "./platform.js";
-import type { GenerateOptions, GenerateResult, SupportedLanguage } from "@xpleria/structogen-common";
+import type { NormalizedPlatform } from "./platform.js";
+import type { GenerateOptions, GenerateResult } from "@xpleria/structogen-common";
 
 export interface FileFilter {
   name: string;

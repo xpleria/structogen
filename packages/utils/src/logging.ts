@@ -1,9 +1,9 @@
 export class Logger {
-  info(): void {
+  info(message: string): void {
     // TODO: Log an informational message.
   }
 
-  error(): void {
+  error(message: string | Error): void {
     // TODO: Log an error message.
   }
 }

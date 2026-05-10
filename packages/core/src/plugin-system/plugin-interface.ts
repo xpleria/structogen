@@ -1,5 +1,4 @@
-import type { GeneratedFile, ParsedSchema } from "@xpleria/structogen-common/src/types.js";
-import type { GenerateOptions } from "@xpleria/structogen-common/src/generate-options.js";
+import { GeneratedFile, GenerateOptions, ParsedSchema } from "@xpleria/structogen-common";
 import { StructogenPluginContext } from "./plugin-context.js";
 
 /**

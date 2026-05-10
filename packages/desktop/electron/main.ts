@@ -8,7 +8,8 @@ import path from 'path';
 import squirrelStartup from 'electron-squirrel-startup';
 import { normalizePlatform, type AppInfo, type GenerateOptions, type GenerateResult } from '@xpleria/structogen-utils';
 
-declare const MAIN_WINDOW_WEBPACK_ENTRY: string;
+import { ElectronPluginManager } from './plugin-manager';
+
 declare const MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: string;
 
 let mainWindow: BrowserWindow | null = null;
@@ -28,7 +29,17 @@ function createWindow(): void {
     },
   });
 
-  mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY);
+  if (process.env['NODE_ENV'] === 'development') {
+    // Dev: load Angular dev server
+    mainWindow.loadURL('http://localhost:4200');
+    mainWindow.webContents.openDevTools();
+  } else {
+    const rendererPath = app.isPackaged
+      ? path.join(process.resourcesPath, 'renderer', 'index.html')
+      : path.join(__dirname, '..', 'src', 'renderer', 'index.html');
+
+    mainWindow.loadFile(rendererPath);
+  }
 
   mainWindow.on('maximize', () => {
     mainWindow?.webContents.send('window:maximizeChanged', true);
@@ -124,7 +135,15 @@ function registerIpcHandlers(): void {
 }
 
 app.whenReady().then(() => {
+  // 1. Initialize plugin manager
+  const pluginManager = new ElectronPluginManager();
+  pluginManager.resolveUserPluginDirectory();
+  pluginManager.loadUserPlugins();
+
+  // 2. Register IPC handlers
   registerIpcHandlers();
+
+  // 3. Create the main window
   createWindow();
 
   app.on('activate', () => {
