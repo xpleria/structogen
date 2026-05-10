@@ -33,11 +33,11 @@ jobs:
             **/.tsbuildinfo
           key: ${{ runner.os }}-ts-${{ hashFiles('**/tsconfig*.json') }}
 
+      - name: Build workspace
+        run: pnpm -w run build
+
       - name: Lint workspace
         run: pnpm -w run lint
 
       - name: Typecheck workspace
         run: pnpm -w run typecheck
-
-      - name: Build workspace
-        run: pnpm -w run build
