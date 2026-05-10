@@ -17,8 +17,7 @@
   },
   "keywords": [],
   "author": {
-    "name": "Neil Patrao",
-    "email": "illusion.webs@ymail.com"
+    "name": "Neil Patrao"
   },
   "license": "MIT",
   "devDependencies": {
@@ -44,13 +43,13 @@
     "node-loader": "^2.1.0",
     "style-loader": "^3.3.4",
     "ts-loader": "^9.5.7",
-    "rimraf": "^6.0.1",
     "typescript": "^5.9.2",
     "webpack": "^5.103.0"
   },
   "dependencies": {
     "@xpleria/structogen-core": "workspace:*",
     "@xpleria/structogen-utils": "workspace:*",
-    "electron-squirrel-startup": "^1.0.1"
+    "electron-squirrel-startup": "^1.0.1",
+    "rimraf": "^6.0.1"
   }
 }

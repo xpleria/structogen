@@ -27,6 +27,9 @@ const config: ForgeConfig = {
   packagerConfig: {
     asar: true,
     icon: getPlatformIcon(),
+    extraResource: [
+      './src/renderer',
+    ],
   },
   rebuildConfig: {},
   makers: [
@@ -53,12 +56,11 @@ const config: ForgeConfig = {
         config: rendererConfig,
         entryPoints: [
           {
-            html: './src/index.html',
-            js: './src/renderer.ts',
             name: 'main_window',
             preload: {
               js: './electron/preload.ts',
             },
+            // No html or js entry — Angular provides the HTML
           },
         ],
       },

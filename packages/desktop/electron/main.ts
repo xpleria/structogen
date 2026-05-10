@@ -10,7 +10,6 @@ import { normalizePlatform, type AppInfo, type GenerateOptions, type GenerateRes
 
 import { ElectronPluginManager } from './plugin-manager';
 
-declare const MAIN_WINDOW_WEBPACK_ENTRY: string;
 declare const MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: string;
 
 let mainWindow: BrowserWindow | null = null;
@@ -30,7 +29,17 @@ function createWindow(): void {
     },
   });
 
-  mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY);
+  if (process.env['NODE_ENV'] === 'development') {
+    // Dev: load Angular dev server
+    mainWindow.loadURL('http://localhost:4200');
+    mainWindow.webContents.openDevTools();
+  } else {
+    const rendererPath = app.isPackaged
+      ? path.join(process.resourcesPath, 'renderer', 'index.html')
+      : path.join(__dirname, '..', 'src', 'renderer', 'index.html');
+
+    mainWindow.loadFile(rendererPath);
+  }
 
   mainWindow.on('maximize', () => {
     mainWindow?.webContents.send('window:maximizeChanged', true);

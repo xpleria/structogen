@@ -1,5 +1,8 @@
 ﻿
 D:\Desk\Workspace\TS\Apps\structogen
+├── .github/
+│   └── workflows/
+│       └── build.yml
 ├── assets/
 │   └── icons/
 │       ├── structogen-icon-transparent.png
@@ -16,7 +19,15 @@ D:\Desk\Workspace\TS\Apps\structogen
 │   │   │   │   ├── generate.ts
 │   │   │   │   ├── init.ts
 │   │   │   │   └── validate.ts
-│   │   │   └── index.ts
+│   │   │   ├── index.ts
+│   │   │   └── node-file-system.ts
+│   │   ├── package.json
+│   │   └── tsconfig.json
+│   ├── common/
+│   │   ├── src/
+│   │   │   ├── generate-options.ts
+│   │   │   ├── index.ts
+│   │   │   └── types.ts
 │   │   ├── package.json
 │   │   └── tsconfig.json
 │   ├── core/
@@ -24,12 +35,16 @@ D:\Desk\Workspace\TS\Apps\structogen
 │   │   │   ├── engine/
 │   │   │   │   ├── file-writer.ts
 │   │   │   │   ├── schema-parser.ts
+│   │   │   │   ├── structogen-engine.ts
+│   │   │   │   ├── structogen-engine-options.ts
 │   │   │   │   └── template-engine.ts
 │   │   │   ├── plugin-system/
+│   │   │   │   ├── plugin-context.ts
 │   │   │   │   ├── plugin-discovery.ts
 │   │   │   │   ├── plugin-interface.ts
 │   │   │   │   └── plugin-loader.ts
-│   │   │   └── index.ts
+│   │   │   ├── index.ts
+│   │   │   └── types.ts
 │   │   ├── package.json
 │   │   └── tsconfig.json
 │   ├── desktop/
@@ -40,9 +55,8 @@ D:\Desk\Workspace\TS\Apps\structogen
 │   │   ├── src/
 │   │   │   ├── types/
 │   │   │   │   └── electron-squirrel-startup.d.ts
-│   │   │   ├── index.css
 │   │   │   ├── index.d.ts
-│   │   │   ├── index.html
+│   │   │   ├── ipc-file-system.ts
 │   │   │   └── renderer.ts
 │   │   ├── .eslintrc.json
 │   │   ├── .gitignore
@@ -94,6 +108,7 @@ D:\Desk\Workspace\TS\Apps\structogen
 │   │   │   │   ├── templates/
 │   │   │   │   │   └── placeholder.txt
 │   │   │   │   ├── CSharpGenerator.ts
+│   │   │   │   └── index.ts
 │   │   │   ├── package.json
 │   │   │   └── tsconfig.json
 │   │   ├── structogen-generator-java/
@@ -134,6 +149,8 @@ D:\Desk\Workspace\TS\Apps\structogen
 │       │   ├── index.ts
 │       │   ├── ipc-api.ts
 │       │   ├── logging.ts
+│       │   ├── path-utils.ts
+│       │   ├── platform.ts
 │       │   ├── schema-validation.ts
 │       │   └── types.ts
 │       ├── package.json

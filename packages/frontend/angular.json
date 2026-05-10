@@ -64,6 +64,15 @@
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true
+            },
+            "electron": {
+              "outputPath": "dist/electron",
+              "optimization": true,
+              "outputHashing": "none",
+              "sourceMap": false,
+              "extractLicenses": true,
+              "namedChunks": false,
+              "baseHref": "./"
             }
           },
           "defaultConfiguration": "production"

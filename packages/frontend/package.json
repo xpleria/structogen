@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:electron": "ng build --configuration electron",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },

@@ -7,15 +7,17 @@
   "author": "Xpleria",
   "scripts": {
     "build": "pnpm -r build",
+    "build:desktop": "pnpm build:renderer && pnpm copy:icons && pnpm --filter @xpleria/structogen-desktop package",
+    "build:renderer": "pnpm --filter @xpleria/structogen-frontend build:electron && node scripts/copy-renderer.js",
     "clean": "pnpm -r clean",
     "copy:icons": "node scripts/copy-icons.js",
-    "icons:cli:win": "node scripts/set-cli-icons.js",
     "copy:desktop-renderer": "node scripts/copy-renderer.js",
     "dev:frontend": "pnpm --filter @xpleria/structogen-frontend start",
     "dev:desktop": "pnpm --filter @xpleria/structogen-desktop start",
-    "package:desktop": "pnpm copy:icons && pnpm --filter @xpleria/structogen-desktop package",
-    "make:desktop": "pnpm copy:icons && pnpm --filter @xpleria/structogen-desktop make",
+    "icons:cli:win": "node scripts/set-cli-icons.js",
     "lint": "pnpm -r lint",
+    "make:desktop": "pnpm build:renderer && pnpm copy:icons && pnpm --filter @xpleria/structogen-desktop make",
+    "package:desktop": "pnpm copy:icons && pnpm --filter @xpleria/structogen-desktop package",
     "typecheck": "pnpm -r typecheck"
   },
   "devDependencies": {
