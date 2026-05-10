@@ -70,6 +70,9 @@ importers:
       '@xpleria/structogen-core':
         specifier: workspace:*
         version: link:../core
+      '@xpleria/structogen-frontend':
+        specifier: workspace:*
+        version: link:../frontend
       '@xpleria/structogen-utils':
         specifier: workspace:*
         version: link:../utils
