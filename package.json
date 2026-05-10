@@ -19,8 +19,8 @@
     "dist:desktop": "pnpm --filter @xpleria/structogen-desktop dist",
     "lint": "pnpm -r lint",
     "postdist": "node scripts/set-cli-icons.js",
-    "prepare": "pnpm copy:renderer && pnpm copy:icons",
-    "release": "pnpm build && pnpm prepare && pnpm dist && pnpm postdist",
+    "predist": "pnpm copy:renderer && pnpm copy:icons",
+    "release": "pnpm build && pnpm predist && pnpm dist && pnpm postdist",
     "typecheck": "pnpm -r typecheck"
   },
   "devDependencies": {
