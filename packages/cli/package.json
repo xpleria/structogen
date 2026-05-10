@@ -10,16 +10,28 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "clean": "rimraf dist",
-    "typecheck": "tsc -p tsconfig.json --noEmit"
+    "clean": "rimraf dist output",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "dist": "pkg . --targets node20-win-x64,node20-linux-x64,node20-macos-x64 --output ./output/cli/structogen-cli"
   },
   "dependencies": {
     "@xpleria/structogen-core": "workspace:*",
-    "@xpleria/structogen-utils": "workspace:*"
+    "@xpleria/structogen-utils": "workspace:*",
+    "commander": "^14.0.3"
   },
   "devDependencies": {
     "@types/node": "^25.6.2",
+    "@yao-pkg/pkg": "^6.19.0",
     "rimraf": "^6.0.1",
     "typescript": "^5.9.2"
+  },
+  "pkg": {
+    "scripts": "dist/**/*.js",
+    "assets": [],
+    "targets": [
+      "node20-win-x64",
+      "node20-linux-x64",
+      "node20-macos-x64"
+    ]
   }
 }
