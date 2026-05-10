@@ -13,7 +13,7 @@ const targetDir = path.join(rootDir, 'packages/desktop/src/renderer');
 async function main() {
   if (!fs.existsSync(sourceDir)) {
     console.error(`Angular build output not found: ${sourceDir}`);
-    console.error('Run: pnpm --filter @xpleria/structogen-frontend build:electron');
+    console.error('Run: pnpm --filter @xpleria/structogen-frontend build');
     process.exit(1);
   }
 

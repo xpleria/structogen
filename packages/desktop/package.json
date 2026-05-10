@@ -7,7 +7,7 @@
   "private": true,
   "scripts": {
     "start": "electron-forge start",
-    "build": "pnpm --dir ../.. copy:icons && electron-forge package",
+    "build": "pnpm --dir ../.. copy:desktop-renderer && pnpm --dir ../.. copy:icons && electron-forge package",
     "package": "pnpm --dir ../.. copy:icons && electron-forge package",
     "make": "pnpm --dir ../.. copy:icons && electron-forge make",
     "publish": "electron-forge publish",
@@ -49,6 +49,7 @@
   "dependencies": {
     "@xpleria/structogen-core": "workspace:*",
     "@xpleria/structogen-utils": "workspace:*",
+    "@xpleria/structogen-frontend": "workspace:*",
     "electron-squirrel-startup": "^1.0.1",
     "rimraf": "^6.0.1"
   }

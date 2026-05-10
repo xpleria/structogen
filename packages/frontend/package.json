@@ -4,8 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
-    "build:electron": "ng build --configuration electron",
+    "build": "ng build --configuration electron",
+    "build:web": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
