@@ -11,7 +11,8 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "clean": "rimraf dist",
-    "typecheck": "tsc -p tsconfig.json --noEmit"
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "dist": "pkg . --targets node20-win-x64,node20-linux-x64,node20-macos-x64 --output ./output/cli/structogen-cli"
   },
   "dependencies": {
     "@xpleria/structogen-core": "workspace:*",

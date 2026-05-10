@@ -6,14 +6,13 @@
   "main": ".webpack/main",
   "private": true,
   "scripts": {
-    "start": "electron-forge start",
-    "build": "pnpm --dir ../.. copy:desktop-renderer && pnpm --dir ../.. copy:icons && electron-forge package",
-    "package": "pnpm --dir ../.. copy:icons && electron-forge package",
-    "make": "pnpm --dir ../.. copy:icons && electron-forge make",
-    "publish": "electron-forge publish",
+    "build": "tsc -p tsconfig.json",
+    "clean": "rimraf dist .webpack out src/renderer",
+    "dev": "electron-forge start",
+    "dist": "electron-forge package",
     "lint": "eslint --ext .ts,.tsx .",
-    "typecheck": "tsc -p tsconfig.json --noEmit",
-    "clean": "rimraf dist .webpack out"
+    "release": "electron-forge make",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "keywords": [],
   "author": {
