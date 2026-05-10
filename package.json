@@ -4,7 +4,7 @@
   "type": "module",
   "private": true,
   "packageManager": "pnpm@10.33.2",
-  "author": "Xpleria",
+  "author": "Neil Patrao",
   "scripts": {
     "build": "pnpm -r build",
     "build:renderer": "pnpm --filter @xpleria/structogen-frontend build && node scripts/copy-renderer.js",
