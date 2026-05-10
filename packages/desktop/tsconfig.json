@@ -1,0 +1,23 @@
+{
+  "extends": "../../tsconfig.node.json",
+  "compilerOptions": {
+    "target": "ES6",
+    "allowJs": true,
+    "module": "nodenext",    "esModuleInterop": true,
+    "noImplicitAny": true,
+    "sourceMap": true,
+    "outDir": "dist",
+    "rootDir": ".",
+    "declaration": false,
+    "declarationMap": false,
+    "moduleResolution": "nodenext",
+    "resolveJsonModule": true,
+    "types": ["node", "electron"]
+  },
+  "include": [
+    "electron/**/*",
+    "src/**/*",
+    "forge.config.ts",
+    "webpack.*.ts"
+  ]
+}

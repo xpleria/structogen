@@ -1,0 +1,116 @@
+{
+  "projectName": "Structogen",
+  "description": "A multi-platform code generation system that converts JSON Schemas into typed class files across multiple programming languages using a shared core engine and extensible plugin architecture.",
+  "components": {
+    "desktopApp": {
+      "techStack": ["Electron", "Angular"],
+      "role": "Visual, user-friendly interface for managing schemas, configuring projects, and previewing generated code.",
+      "features": {
+        "projectWorkflow": [
+          "File naming conventions",
+          "Header templates",
+          "Language-specific settings",
+          "Output folder structure",
+          "Excluded files or patterns",
+          "Custom template overrides"
+        ],
+        "schemaManagement": "Import, edit, preview, and organize JSON Schemas.",
+        "livePreviews": [
+          "C#",
+          "C++",
+          "JavaScript",
+          "TypeScript",
+          "Python",
+          "Plugin-provided languages"
+        ],
+        "batchGeneration": "Generate classes for multiple languages at once."
+      },
+      "architecturalRole": [
+        "Configuration hub",
+        "Visual editor",
+        "Preview and validation tool",
+        "Front-end orchestrator delegating to core engine",
+        "Plugin host (user plugin directory)"
+      ]
+    },
+    "cli": {
+      "role": "Automation layer for CI/CD, scripting, and power users.",
+      "features": [
+        "Generate classes from JSON Schemas via command",
+        "Use Structogen project files",
+        "Override settings with flags",
+        "Integrate into build systems",
+        "Load external plugins via npm"
+      ],
+      "architecturalRole": "Automation interface using the same core engine as the desktop app."
+    },
+    "coreEngine": {
+      "responsibilities": [
+        "Parse JSON Schemas",
+        "Map schema definitions to language constructs",
+        "Apply project configuration rules",
+        "Produce final class files",
+        "Load and orchestrate language generator plugins"
+      ],
+      "builtInGenerators": [
+        "C#",
+        "C++",
+        "JavaScript",
+        "TypeScript",
+        "Python"
+      ],
+      "generatorPackagePath": "packages/generators/structogen-generator-*"
+    },
+    "pluginSystem": {
+      "description": "Extensible architecture allowing new language generators without modifying Structogen.",
+      "pluginTypes": ["Built-in", "External"],
+      "discovery": {
+        "automatic": [
+          "structogen-generator-*",
+          "@*/structogen-generator-*"
+        ],
+        "explicitConfig": {
+          "example": {
+            "plugins": [
+              "@someone/structogen-generator-java",
+              "@someone/structogen-generator-rust"
+            ]
+          }
+        }
+      },
+      "loadLocations": {
+        "cli": ["local node_modules", "global node_modules"],
+        "desktopApp": ["~/.structogen/plugins"]
+      }
+    },
+    "projectFile": {
+      "purpose": "Defines how code should be generated.",
+      "contents": [
+        "Target languages",
+        "Header templates",
+        "Naming conventions",
+        "Output directory structure",
+        "File exclusions",
+        "Custom template overrides",
+        "Plugin configuration"
+      ],
+      "properties": ["Repeatable", "Shareable", "CI/CD-friendly", "Version-controlled"]
+    }
+  },
+  "workflow": {
+    "steps": [
+      "User creates or imports JSON Schemas",
+      "Structogen loads project configuration",
+      "Core engine interprets schema",
+      "Plugins generate language-specific output",
+      "Files are written to output structure"
+    ],
+    "separationOfConcerns": {
+      "desktopUI": "Interaction, previews, configuration",
+      "cli": "Automation, scripting, pipelines",
+      "coreEngine": "Schema parsing, generation logic, plugin orchestration",
+      "plugins": "Language-specific code generation",
+      "projectFile": "Configuration"
+    }
+  }
+}

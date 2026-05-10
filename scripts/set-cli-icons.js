@@ -1,6 +1,17 @@
+import { createRequire } from 'module';
+import { fileURLToPath } from 'url';
+import fs from 'fs-extra';
+import path from 'path';
+
+const require = createRequire(import.meta.url);
 const { rcedit } = require('rcedit');
-const fs = require('fs-extra');
-const pkg = require('../package.json');
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const rootDir = path.resolve(__dirname, '..');
+
+const pkgPath = path.join(rootDir, 'package.json');
+const pkg = JSON.parse(await fs.readFile(pkgPath, 'utf8'));
 
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -10,9 +21,9 @@ async function main() {
     return;
   }
 
-  const exePath = 'output/cli/structogen-cli-win.exe';
-  const tempPath = 'output/cli/structogen-cli-win-icon-tmp.exe';
-  const iconPath = 'assets/icons/structogen-win-rcedit.ico';
+  const exePath = path.join(rootDir, 'packages/cli/output/cli/structogen-cli-win.exe');
+  const tempPath = path.join(rootDir, 'packages/cli/output/cli/structogen-cli-win-icon-tmp.exe');
+  const iconPath = path.join(rootDir, 'assets/icons/structogen-win-rcedit.ico');
 
   const rceditOptions = {
     icon: iconPath,
@@ -31,7 +42,7 @@ async function main() {
 
   let lastError;
 
-  for (let attempt = 1; attempt <= 6; attempt += 1) {
+  for (let attempt = 1; attempt <= 6; attempt++) {
     try {
       await fs.remove(tempPath);
       await fs.copy(exePath, tempPath, { overwrite: true });
@@ -41,10 +52,7 @@ async function main() {
     } catch (error) {
       lastError = error;
       await fs.remove(tempPath);
-
-      if (attempt < 6) {
-        await wait(attempt * 1000);
-      }
+      if (attempt < 6) await wait(attempt * 1000);
     }
   }
 

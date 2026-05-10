@@ -1,0 +1,179 @@
+﻿
+D:\Desk\Workspace\TS\Apps\structogen
+├── .github/
+│   └── workflows/
+│       └── build.yml
+├── assets/
+│   └── icons/
+│       ├── structogen-icon-transparent.png
+│       ├── structogen-lin.png
+│       ├── structogen-mac.icns
+│       ├── structogen-win.ico
+│       └── structogen-win-rcedit.ico
+├── packages/
+│   ├── cli/
+│   │   ├── bin/
+│   │   │   └── structogen.js
+│   │   ├── src/
+│   │   │   ├── commands/
+│   │   │   │   ├── generate.ts
+│   │   │   │   ├── init.ts
+│   │   │   │   └── validate.ts
+│   │   │   ├── index.ts
+│   │   │   └── node-file-system.ts
+│   │   ├── package.json
+│   │   └── tsconfig.json
+│   ├── common/
+│   │   ├── src/
+│   │   │   ├── generate-options.ts
+│   │   │   ├── index.ts
+│   │   │   └── types.ts
+│   │   ├── package.json
+│   │   └── tsconfig.json
+│   ├── core/
+│   │   ├── src/
+│   │   │   ├── engine/
+│   │   │   │   ├── file-writer.ts
+│   │   │   │   ├── schema-parser.ts
+│   │   │   │   ├── structogen-engine.ts
+│   │   │   │   ├── structogen-engine-options.ts
+│   │   │   │   └── template-engine.ts
+│   │   │   ├── plugin-system/
+│   │   │   │   ├── plugin-context.ts
+│   │   │   │   ├── plugin-discovery.ts
+│   │   │   │   ├── plugin-interface.ts
+│   │   │   │   └── plugin-loader.ts
+│   │   │   ├── index.ts
+│   │   │   └── types.ts
+│   │   ├── package.json
+│   │   └── tsconfig.json
+│   ├── desktop/
+│   │   ├── electron/
+│   │   │   ├── main.ts
+│   │   │   ├── plugin-manager.ts
+│   │   │   └── preload.ts
+│   │   ├── src/
+│   │   │   ├── types/
+│   │   │   │   └── electron-squirrel-startup.d.ts
+│   │   │   ├── index.d.ts
+│   │   │   ├── ipc-file-system.ts
+│   │   │   └── renderer.ts
+│   │   ├── .eslintrc.json
+│   │   ├── .gitignore
+│   │   ├── .npmrc
+│   │   ├── forge.config.ts
+│   │   ├── package.json
+│   │   ├── tsconfig.json
+│   │   ├── webpack.main.config.ts
+│   │   ├── webpack.plugins.ts
+│   │   ├── webpack.renderer.config.ts
+│   │   └── webpack.rules.ts
+│   ├── frontend/
+│   │   ├── public/
+│   │   │   └── favicon.ico
+│   │   ├── src/
+│   │   │   ├── app/
+│   │   │   │   ├── app.config.ts
+│   │   │   │   ├── app.html
+│   │   │   │   ├── app.routes.ts
+│   │   │   │   ├── app.scss
+│   │   │   │   ├── app.spec.ts
+│   │   │   │   └── app.ts
+│   │   │   ├── environments/
+│   │   │   │   ├── environment.prod.ts
+│   │   │   │   └── environment.ts
+│   │   │   ├── index.html
+│   │   │   ├── main.ts
+│   │   │   └── styles.scss
+│   │   ├── .editorconfig
+│   │   ├── .gitignore
+│   │   ├── .prettierrc
+│   │   ├── angular.json
+│   │   ├── package.json
+│   │   ├── README.md
+│   │   ├── tsconfig.app.json
+│   │   ├── tsconfig.json
+│   │   └── tsconfig.spec.json
+│   ├── generators/
+│   │   ├── structogen-generator-cpp/
+│   │   │   ├── src/
+│   │   │   │   ├── templates/
+│   │   │   │   │   └── placeholder.txt
+│   │   │   │   ├── CppGenerator.ts
+│   │   │   │   └── index.ts
+│   │   │   ├── package.json
+│   │   │   └── tsconfig.json
+│   │   ├── structogen-generator-csharp/
+│   │   │   ├── src/
+│   │   │   │   ├── templates/
+│   │   │   │   │   └── placeholder.txt
+│   │   │   │   ├── CSharpGenerator.ts
+│   │   │   │   └── index.ts
+│   │   │   ├── package.json
+│   │   │   └── tsconfig.json
+│   │   ├── structogen-generator-java/
+│   │   │   ├── src/
+│   │   │   │   ├── templates/
+│   │   │   │   │   └── placeholder.txt
+│   │   │   │   ├── index.ts
+│   │   │   │   └── JavaGenerator.ts
+│   │   │   ├── package.json
+│   │   │   └── tsconfig.json
+│   │   ├── structogen-generator-javascript/
+│   │   │   ├── src/
+│   │   │   │   ├── templates/
+│   │   │   │   │   └── placeholder.txt
+│   │   │   │   ├── index.ts
+│   │   │   │   └── JavaScriptGenerator.ts
+│   │   │   ├── package.json
+│   │   │   └── tsconfig.json
+│   │   ├── structogen-generator-python/
+│   │   │   ├── src/
+│   │   │   │   ├── templates/
+│   │   │   │   │   └── placeholder.txt
+│   │   │   │   ├── index.ts
+│   │   │   │   └── PythonGenerator.ts
+│   │   │   ├── package.json
+│   │   │   └── tsconfig.json
+│   │   └── structogen-generator-typescript/
+│   │       ├── src/
+│   │       │   ├── templates/
+│   │       │   │   └── placeholder.txt
+│   │       │   ├── index.ts
+│   │       │   └── TypeScriptGenerator.ts
+│   │       ├── package.json
+│   │       └── tsconfig.json
+│   └── utils/
+│       ├── src/
+│       │   ├── file-system.ts
+│       │   ├── index.ts
+│       │   ├── ipc-api.ts
+│       │   ├── logging.ts
+│       │   ├── path-utils.ts
+│       │   ├── platform.ts
+│       │   ├── schema-validation.ts
+│       │   └── types.ts
+│       ├── package.json
+│       └── tsconfig.json
+├── resources/
+│   ├── structogen-icon.png
+│   ├── structogen-icon-transparent.png
+│   └── structogen-logo.png
+├── scripts/
+│   ├── copy-icons.js
+│   ├── copy-renderer.js
+│   ├── create-windows-ico.ps1
+│   └── set-cli-icons.js
+├── tools/
+│   └── tree.ps1
+├── user-plugins/
+├── .gitignore
+├── LICENSE
+├── package.json
+├── pnpm-lock.yaml
+├── pnpm-workspace.yaml
+├── README.json
+├── README.md
+├── tree.txt
+├── tsconfig.base.json
+└── tsconfig.node.json
