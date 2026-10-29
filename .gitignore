@@ -70,3 +70,7 @@ Thumbs.db
 
 user-plugins/*
 !user-plugins/.gitkeep
+
+# Private collaboration drop zone: only its root README is tracked.
+.ref/**
+!.ref/README.md
